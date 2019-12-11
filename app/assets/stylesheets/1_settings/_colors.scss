@@ -1,0 +1,24 @@
+// --------------------------------------- //
+// KEY BRAND COLOURS                       //
+// --------------------------------------- //
+
+$turquoise: #3FB3AB;
+$dark-grey: #333;
+
+// --------------------------------------- //
+// ELEMENT COLOURS                         //
+// --------------------------------------- //
+
+$link-color: $turquoise;
+
+// --------------------------------------- //
+// COMPONENT COLOURS                       //
+// --------------------------------------- //
+
+// .site-layout
+
+$content-bg-color: #fff;
+
+$footer-bg-color: $dark-grey;
+$footer-font-color: #fff;
+$footer-link-hover-color: lighten($turquoise, 25%);

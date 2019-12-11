@@ -1,0 +1,15 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: $link-color;
+}
+
+a:hover {
+  text-decoration: underline;
+  // The following property does not have wide support in all browsers,
+  // but we want to use it where available.
+  text-decoration-skip-ink: auto;
+}

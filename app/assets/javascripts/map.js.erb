@@ -1,0 +1,35 @@
+$.onmount('[data-js-map]', function () {
+  var $this = $(this)
+  // TODO: extract media query
+  const mq = window.matchMedia("screen and (min-width: 768px)");
+  const accessToken = '<%= Rails.application.credentials[Rails.env.to_sym][:mapbox][:token] %>';
+
+  // Initialize map upon initial page load, but only when the media query matches 
+  if (mq.matches == true) {
+    showMap();
+  }
+
+  // Watch for subsequent media query changes and initialize map if necessary 
+  mq.addListener(function (e) {
+    if (e.matches) {
+      showMap();
+    }
+  });
+
+  // Runs the appropriate steps needed to initialize the Mapbox map
+  function showMap() {
+    mapboxgl.accessToken = accessToken;
+
+    var map = new mapboxgl.Map({
+      container: $this.get(0),
+      style: 'mapbox://styles/imeow/ck3uhi0xf07rf1cntmz7erowm?fresh=true',
+      center: [-123.106913, 49.284185],
+      zoom: 13.5,
+      attributionControl: false
+    });
+
+    map.addControl(new mapboxgl.AttributionControl({
+      compact: true
+    }));
+  }
+});

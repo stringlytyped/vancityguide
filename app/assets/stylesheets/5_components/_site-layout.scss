@@ -1,0 +1,87 @@
+.site-layout {
+  &_map {
+    position: absolute;
+    top: 0;
+    right: 0; 
+    bottom: 30px;
+    left: 0;
+      
+    @include respond-to("mobile-up") {
+      display: none;
+    }
+
+    @include respond-to("tablet-up") {
+      display: block;
+    }
+  }
+
+  &_content {
+    background-color: $content-bg-color;
+
+    box-sizing: border-box;
+    padding: 20px;
+
+    @include respond-to("tablet-up") {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      bottom: 75px;
+      width: 350px;
+
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(black, 0.25);
+    }
+  }
+
+  &_footer {
+    height: 30px;
+    position: absolute;
+    right: 0; 
+    bottom: 0;
+    left: 0;
+    padding: 0 20px 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: $footer-bg-color;
+
+    color: $footer-font-color;
+    line-height: 30px;
+    font-size: 14px;
+  }
+
+  &_footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &_footer li {
+    display: inline-block;
+    margin-left: 15px;
+  }
+
+  &_footer li:first-child {
+    margin-left: 0;
+  }
+
+  &_footer a:link, &_footer a:visited {
+    color: $footer-font-color;
+  }
+
+  &_footer a:hover {
+    color: $footer-link-hover-color;
+    text-decoration: none;
+  }
+
+  &_nav {
+    order: 1;
+  }
+
+  &_legal {
+    order: 0;
+    font-size: 14px;
+    font-style: italic;
+  }
+}

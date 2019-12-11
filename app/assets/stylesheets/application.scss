@@ -10,6 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
+
+// We use SCSS imports instead of sprockets to make variables and mixins available elsewhere in our
+// stylesheets. Additionally, the order in which we load SCSS code is important (specifically,
+// 1_settings and 2_tools need be loaded first, because they contain variables and mixins).
+
+@import "./1_settings/*";
+@import "./2_tools/*";
+@import "./3_generic/*";
+@import "./4_elements/*";
+@import "./5_components/*";

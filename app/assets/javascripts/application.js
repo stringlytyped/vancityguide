@@ -18,4 +18,4 @@
 //= require_tree .
 
 // Cause JavaScript behaviours to run whenever a new page is loaded by Turbolinks
-$(document).on('ready page:change', function () { $.onmount() })
+$(document).on('ready turbolinks:load', function () { $.onmount() })

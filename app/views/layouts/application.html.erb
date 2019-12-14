@@ -23,6 +23,8 @@
       <div class="site-layout_map" data-js-map data-turbolinks-permanent></div>
 
       <main class="site-layout_content">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
         <%= yield %>
       </main>
 
@@ -31,6 +33,12 @@
           <ul>
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Contact", "" %></li>
+            <% unless user_signed_in? %>
+              <li><%= link_to "Log in", new_user_session_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <% else %>
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <% end %>
           </ul>
         </nav>
         <small class="site-layout_legal">

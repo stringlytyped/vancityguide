@@ -1,5 +1,7 @@
 class PoisController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy]
   before_action :set_poi, only: [:show, :edit, :update, :destroy]
+  before_action :allow_if_owner!, only: [:edit, :update, :destroy]
 
   # GET /pois
   # GET /pois.json
@@ -25,10 +27,11 @@ class PoisController < ApplicationController
   # POST /pois.json
   def create
     @poi = Poi.new(poi_params)
+    @poi.owner = current_user
 
     respond_to do |format|
       if @poi.save
-        format.html { redirect_to @poi, notice: 'Poi was successfully created.' }
+        format.html { redirect_to @poi, notice: 'Attraction was created successfully' }
         format.json { render :show, status: :created, location: @poi }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class PoisController < ApplicationController
   def update
     respond_to do |format|
       if @poi.update(poi_params)
-        format.html { redirect_to @poi, notice: 'Poi was successfully updated.' }
+        format.html { redirect_to @poi, notice: 'Attraction was updated successfully' }
         format.json { render :show, status: :ok, location: @poi }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class PoisController < ApplicationController
   def destroy
     @poi.destroy
     respond_to do |format|
-      format.html { redirect_to pois_url, notice: 'Poi was successfully destroyed.' }
+      format.html { redirect_to pois_url, notice: 'Attraction was deleted successfully' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +70,23 @@ class PoisController < ApplicationController
       @poi = Poi.find(params[:id])
     end
 
+    # Disallow action if the current user is not the owner of the POI or admin
+    def allow_if_owner!
+      unless @poi.owner == current_user || current_user.admin?
+        respond_to do |format|
+          format.html { redirect_to @poi, alert: 'You don\'t have permission to do that' }
+          format.json { head :no_content, status: :unauthorized }
+        end
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def poi_params
-      params.require(:poi).permit(:public, :featured, :name, :rating, :website, :price, :description, :owner_id, :category)
+      permitted_params = [:public, :name, :rating, :website, :price, :description, :category]
+
+      # Only allow admins to change the featured field
+      permitted_params.push :featured if current_user.admin?
+
+      params.require(:poi).permit(permitted_params)
     end
 end

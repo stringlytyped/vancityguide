@@ -1,7 +1,7 @@
 <%= form_with(model: poi, local: true) do |form| %>
   <% if poi.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(poi.errors.count, "error") %> prohibited this poi from being saved:</h2>
+    <div>
+      <p><strong><%= pluralize(poi.errors.count, "error") %> prohibited this attraction from being saved:</strong></p>
 
       <ul>
       <% poi.errors.full_messages.each do |message| %>
@@ -12,23 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :public %>
-    <%= form.check_box :public %>
-  </div>
-
-  <div class="field">
-    <%= form.label :featured %>
-    <%= form.check_box :featured %>
+    <%= form.label :category %>
+    <%= form.select :category, Poi.categories.collect {|name, id| [ name.humanize, name ] } %>
   </div>
 
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
   </div>
 
   <div class="field">
@@ -52,9 +42,21 @@
   </div>
 
   <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
+    <%= form.label :rating %>
+    <%= form.number_field :rating %>
   </div>
+
+  <div class="field">
+    <%= form.label :public %>
+    <%= form.check_box :public %>
+  </div>
+
+  <% if current_user.admin? %>
+    <div class="field">
+      <%= form.label :featured %>
+      <%= form.check_box :featured %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

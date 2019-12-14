@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_164924) do
+ActiveRecord::Schema.define(version: 2019_12_14_124923) do
+
+  create_table "pois", force: :cascade do |t|
+    t.boolean "public", null: false
+    t.boolean "featured", null: false
+    t.string "name", null: false
+    t.integer "rating", limit: 1
+    t.string "website"
+    t.string "price"
+    t.text "description"
+    t.integer "owner_id", null: false
+    t.integer "category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_pois_on_owner_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

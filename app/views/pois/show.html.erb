@@ -1,0 +1,47 @@
+<p>
+  <strong>Public:</strong>
+  <%= @poi.public %>
+</p>
+
+<p>
+  <strong>Featured:</strong>
+  <%= @poi.featured %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @poi.name %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @poi.rating %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @poi.website %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @poi.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @poi.description %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @poi.owner %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @poi.category %>
+</p>
+
+<%= link_to 'Edit', edit_poi_path(@poi) %> |
+<%= link_to 'Back', pois_path %>

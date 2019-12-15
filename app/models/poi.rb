@@ -8,5 +8,6 @@ class Poi < ApplicationRecord
                                      less_than_or_equal_to: 5 },
                      allow_nil: true
   validates :website, url: true
-  
+
+  has_many :bookmarks, dependent: :destroy
 end

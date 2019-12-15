@@ -1,0 +1,14 @@
+<h1>My bookmarks</h1>
+
+<% if @bookmarks.count > 0 %>
+  <% @bookmarks.each do |bookmark| %>
+    <div class="poi-tile">
+      <%= link_to bookmark do %>
+        <%= bookmark.poi.name %>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <p><em>You have no bookmarks at the moment.</em></p>
+  <p><em>To create a bookmark, navigate to an attraction and click the bookmark icon.</em></p>
+<% end %>

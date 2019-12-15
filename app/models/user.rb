@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable
   
-  has_many :pois, foreign_key: "creator_id",
+  has_many :pois, foreign_key: "owner_id",
                   dependent: :destroy
+
+  has_many :bookmarks, foreign_key: "owner_id",
+                       dependent: :destroy
 end

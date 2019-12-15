@@ -35,8 +35,8 @@
   }
 
   &.--switch input {
+    @include hide-visually;
     width: 1px;
-    visibility: hidden;
   }
 
   &.--switch &_toggle {
@@ -44,6 +44,7 @@
     display: inline-block;
     width: 50px;
     height: 20px;
+    margin-left: 5px;
     position: relative;
     border-radius: 3px;
     background-color: $switch-bg-color;

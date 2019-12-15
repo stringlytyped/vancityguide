@@ -19,14 +19,20 @@
   <% end %>
 </header>
 
-<p><% @poi.rating.times do %>★<% end %></p>
+<% if @poi.rating.present? %>
+  <p><% @poi.rating.times do %>★<% end %></p>
+<% end %>
 
 <dl>
-  <dt>Website</dt>
-  <dd><%= link_to URI.parse(@poi.website).host, @poi.website %></dd>
+  <% if @poi.website.present? %>
+    <dt>Website</dt>
+    <dd><%= link_to URI.parse(@poi.website).host, @poi.website %></dd>
+  <% end %>
 
-  <dt>Price</dt>
-  <dd><%= @poi.price %></dd>
+  <% if @poi.website.present? %>
+    <dt>Price</dt>
+    <dd><%= @poi.price %></dd>
+  <% end %>
 </dl>
 
 <%= simple_format(@poi.description) %>

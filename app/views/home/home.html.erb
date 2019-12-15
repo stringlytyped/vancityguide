@@ -1,2 +1,34 @@
-<h1>Home#home</h1>
-<p>Find me in app/views/home/home.html.erb</p>
+<header class="home-header">
+  <h1 class="home-header_logo">
+    <svg class="sprite --logo" aria-label="Vancity Guide">
+      <use xlink:href="/assets/sprite.svg#logo"></use>
+    </svg>
+  </h1>
+  <p class="home-header_tagline">Find the <strong><span class="home-header_underline">best</span> attractions</strong><br> in the city of Vancouver<br> and surrounding areas</p>
+</header>
+
+<% if @featured_pois.count > 0 %>
+  <h2>Featured attractions</h2>
+
+  <% @featured_pois.each do |poi| %>
+    <article class="poi-tile <%= "--#{poi.category}" %>">
+      <%= link_to poi, class: "poi-tile_link" do %>
+        <span class="poi-tile_category"><%= poi.category.humanize %></span>
+        <span class="poi-tile_name"><%= poi.name.truncate(70) %></span>
+      <% end %>
+    </article>
+  <% end %>
+<% end %>
+
+<% if @user_pois.count > 0 %>
+  <h2>Attractions contributed by our users</h2>
+
+  <% @user_pois.each do |poi| %>
+    <article class="poi-tile <%= "--#{poi.category}" %>">
+      <%= link_to poi, class: "poi-tile_link" do %>
+        <span class="poi-tile_category"><%= poi.category.humanize %></span>
+        <span class="poi-tile_name"><%= poi.name.truncate(70) %></span>
+      <% end %>
+    </article>
+  <% end %>
+<% end %>

@@ -48,9 +48,10 @@
   </div>
 
   <% if current_user.admin? %>
-    <div class="field">
+    <div class="field --switch">
       <%= form.label :featured %>
       <%= form.check_box :featured %>
+      <label for="poi_featured" class="field_toggle"></label>
     </div>
   <% end %>
 

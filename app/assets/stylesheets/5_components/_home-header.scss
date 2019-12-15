@@ -1,0 +1,18 @@
+.home-header {
+  text-align: right;
+
+  &_logo {
+    margin: 70px 0 20px 0;
+  }
+
+  &_tagline {
+    display: inline-block;
+    font-size: 21px;
+    line-height: 1.4;
+    color: $tagline-text-color;
+  }
+
+  &_underline {
+    border-bottom: 2px solid $tagline-underline-color;
+  }
+}

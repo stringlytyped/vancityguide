@@ -12,6 +12,9 @@ class PoisController < ApplicationController
   # GET /pois/1
   # GET /pois/1.json
   def show
+    unless @poi.public? || @poi.owner == current_user || current_user.admin? 
+      deny_access!
+    end
   end
 
   # GET /pois/new
@@ -73,10 +76,14 @@ class PoisController < ApplicationController
     # Disallow action if the current user is not the owner of the POI or admin
     def allow_if_owner!
       unless @poi.owner == current_user || current_user.admin?
-        respond_to do |format|
-          format.html { redirect_to @poi, alert: 'You don\'t have permission to do that' }
-          format.json { head :no_content, status: :unauthorized }
-        end
+        deny_access!
+      end
+    end
+
+    def deny_access!
+      respond_to do |format|
+        format.html { redirect_to pois_url, alert: "You don't have permission to do that" }
+        format.json { head :no_content, status: :unauthorized }
       end
     end
 

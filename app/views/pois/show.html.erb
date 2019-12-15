@@ -1,47 +1,42 @@
-<p>
-  <strong>Public:</strong>
-  <%= @poi.public %>
-</p>
+<h1 class="poi-heading">
+  <span class="poi-heading_category"><%= @poi.category.humanize %></span>
+  <span class="poi-heading_separator">:</span>
+  <span class="poi-heading_name"><%= @poi.name %></span>
+</h1>
 
-<p>
-  <strong>Featured:</strong>
-  <%= @poi.featured %>
-</p>
+<p><% @poi.rating.times do %>★<% end %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @poi.name %>
-</p>
+<dl>
+  <dt>Website</dt>
+  <dd><%= link_to URI.parse(@poi.website).host, @poi.website %></dd>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @poi.rating %>
-</p>
+  <dt>Price</dt>
+  <dd><%= @poi.price %></dd>
+</dl>
 
-<p>
-  <strong>Website:</strong>
-  <%= @poi.website %>
-</p>
+<%= simple_format(@poi.description) %>
 
-<p>
-  <strong>Price:</strong>
-  <%= @poi.price %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @poi.description %>
-</p>
+<% if current_user.admin? %>
+  <hr>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @poi.owner %>
-</p>
+  <dl>
+    <dt>Owner</dt>
+    <dd><%= @poi.owner.email %></dd>
 
-<p>
-  <strong>Category:</strong>
-  <%= @poi.category %>
-</p>
+    <dt>Public</dt>
+    <dd><%= @poi.public %></dd>
 
-<%= link_to 'Edit', edit_poi_path(@poi) %> |
-<%= link_to 'Back', pois_path %>
+    <dt>Featured</dt>
+    <dd><%= @poi.featured %></dd>
+  </dl>
+
+  <hr>
+<% end %>
+
+<div>
+  <% if @poi.owner == current_user || current_user.admin? %>
+    <%= link_to 'Edit', edit_poi_path(@poi) %> | 
+  <% end %>
+  <%= link_to 'Back', pois_path %>
+</div>

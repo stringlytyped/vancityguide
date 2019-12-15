@@ -1,0 +1,19 @@
+dl {
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-column-gap: 20px;
+
+  dt {
+    font-weight: 500;
+    margin: 3px 0;
+  }
+
+  dt::after {
+    content: ':';
+  }
+
+  dd {
+    margin: 0;
+    margin: 3px 0;
+  }
+}

@@ -1,0 +1,15 @@
+.poi-heading {
+  &_category {
+    display: block;
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  &_separator {
+    @include hide-visually;
+  }
+
+  &_name {
+    display: block;
+  }
+}

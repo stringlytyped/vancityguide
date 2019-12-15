@@ -1,0 +1,21 @@
+<h1>Contact</h1>
+
+<p>If you'd like to contact us, please use the form below. We'll do our best to get back to you within a few days.</p>
+
+<%= form_with(url: contact_path, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :sender_name, "Name" %>
+    <%= form.text_field :sender_name, value: @sender_name %>
+  </div>
+  <div class="field">
+    <%= form.label :sender_addr, "Email" %>
+    <%= form.email_field :sender_addr, value: @sender_addr %>
+  </div>
+  <div class="field">
+    <%= form.label :message, "Message" %>
+    <%= form.text_area :message, value: @message %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Send message", class: "button" %>
+  </div>
+<% end %>

@@ -1,0 +1,7 @@
+<h1>New contact form submission</h1>
+
+<p>The contact form on <a href="https://vancity.guide">vancity.guide</a> has been submitted by <strong><%= @sender_name %></strong> (<%= @sender_addr %>):</p>
+
+<h2>Message</h2>
+
+<%= simple_format(@message) %>

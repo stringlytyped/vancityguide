@@ -36,7 +36,7 @@
         <nav class="site-layout_nav">
           <ul>
             <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Contact", "" %></li>
+            <li><%= link_to "Contact", contact_path %></li>
             <% unless user_signed_in? %>
               <li><%= link_to "Log in", new_user_session_path %></li>
               <li><%= link_to "Sign up", new_user_registration_path %></li>

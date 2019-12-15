@@ -9,7 +9,21 @@
     color: $field-label-color;
   }
 
-  input[type=text], input[type=email], textarea, select {
+  &_help {
+    font-size: 14px;
+    margin: 0;
+    margin-top: 5px;
+    font-style: italic;
+    color: $field-help-text-color;
+  }
+
+  input[type=checkbox] + label {
+    display: inline;
+    text-transform: none;
+    font-size: 16px;
+  }
+
+  input[type=text], input[type=email], input[type=password], textarea, select {
     width: calc(100% - 18px);
     font-size: 16px;
     padding: 5px 8px;
@@ -17,7 +31,7 @@
     border: 1px solid $field-border-color;
   }
 
-  input[type=text]:focus, input[type=email]:focus, textarea:focus, select:focus {
+  input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, textarea:focus, select:focus {
     border-color: $field-border-focus-color;
   }
 

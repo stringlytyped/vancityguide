@@ -1,11 +1,11 @@
 .actions {
   margin: 15px 0;
 
-  .button, a {
+  > * {
     margin-left: 10px;
   }
 
-  .button:first-child, a:first-child {
+  > *:first-child {
     margin-left: 0;
   }
 

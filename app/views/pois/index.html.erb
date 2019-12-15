@@ -1,31 +1,48 @@
-<h1>Attractions</h1>
+<h1>My attractions</h1>
 
-<% if @pois.count > 0 %>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+<%= link_to 'New attraction', new_poi_path %>
 
-    <tbody>
-      <% @pois.each do |poi| %>
-        <tr>
-          <td><%= poi.name %></td>
-          <td><%= poi.category.humanize %></td>
-          <td><%= link_to 'Show', poi %></td>
-          <% if current_user == poi.owner || current_user.admin? %>
-            <td><%= link_to 'Edit', edit_poi_path(poi) %></td>
-            <td><%= link_to 'Destroy', poi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
+<% if @my_pois.count > 0 %>
+  <% @my_pois.each do |poi| %>
+    <article class="poi-tile <%= "--#{poi.category}" %>">
+      <%= link_to poi, class: "poi-tile_link" do %>
+        <span class="poi-tile_category"><%= poi.category.humanize %></span>
+        <span class="poi-tile_name"><%= poi.name.truncate(70) %></span>
       <% end %>
-    </tbody>
-  </table>
+    </article>
+  <% end %>
 <% else %>
   <p><em>No attractions have been added.</em></p>
 <% end %>
 
-<%= link_to 'New attraction', new_poi_path %>
+<% if current_user.admin? %>
+  <h2>Attractions created by other users</h2>
+
+  <% if @other_pois && @other_pois.count > 0 %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @other_pois.each do |poi| %>
+          <tr>
+            <td><%= poi.name %></td>
+            <td><%= poi.category.humanize %></td>
+            <td><%= link_to 'Show', poi %></td>
+            <% if current_user == poi.owner || current_user.admin? %>
+              <td><%= link_to 'Edit', edit_poi_path(poi) %></td>
+              <td><%= link_to 'Destroy', poi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><em>No attractions have been added by other users.</em></p>
+  <% end %>
+<% end %>

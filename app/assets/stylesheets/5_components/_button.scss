@@ -8,6 +8,10 @@
   font-size: 12px;
   text-transform: uppercase;
 
+  &:link, &:visited {
+    color: $button-text-color;
+  }
+
   &:hover {
     opacity: 0.8;
     cursor: pointer;

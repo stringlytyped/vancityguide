@@ -2,11 +2,12 @@
 
 <% if @bookmarks.count > 0 %>
   <% @bookmarks.each do |bookmark| %>
-    <div class="poi-tile">
-      <%= link_to bookmark do %>
-        <%= bookmark.poi.name %>
+    <article class="poi-tile <%= "--#{bookmark.poi.category}" %>">
+      <%= link_to bookmark, class: "poi-tile_link" do %>
+        <span class="poi-tile_category"><%= bookmark.poi.category.humanize %></span>
+        <span class="poi-tile_name"><%= bookmark.poi.name.truncate(70) %></span>
       <% end %>
-    </div>
+    </article>
   <% end %>
 <% else %>
   <p><em>You have no bookmarks at the moment.</em></p>

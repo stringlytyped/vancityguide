@@ -8,7 +8,10 @@ class PoisController < ApplicationController
   # GET /pois
   # GET /pois.json
   def index
-    @pois = Poi.all
+    @my_pois = Poi.where(owner: current_user)
+    if current_user.admin?
+      @other_pois = Poi.where.not(owner: current_user)
+    end
   end
 
   # GET /pois/1

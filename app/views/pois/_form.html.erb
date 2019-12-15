@@ -38,12 +38,13 @@
 
   <div class="field">
     <%= form.label :rating %>
-    <%= form.number_field :rating %>
+    <%= form.number_field :rating, min: 1, max: 5 %>
   </div>
 
-  <div class="field">
+  <div class="field --switch">
     <%= form.label :public %>
     <%= form.check_box :public %>
+    <label for="poi_public" class="field_toggle"></label>
   </div>
 
   <% if current_user.admin? %>
@@ -54,6 +55,7 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save attraction", class: "button" %>
+    <%= link_to 'Cancel', pois_path %>
   </div>
 <% end %>

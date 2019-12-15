@@ -1,0 +1,70 @@
+.field {
+  margin: 15px 0;
+
+  label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: $field-label-color;
+  }
+
+  input[type=text], textarea, select {
+    width: calc(100% - 18px);
+    font-size: 16px;
+    padding: 5px 8px;
+    border-radius: 3px;
+    border: 1px solid $field-border-color;
+  }
+
+  input[type=text]:focus, textarea:focus, select:focus {
+    border-color: $field-border-focus-color;
+  }
+
+  textarea {
+    height: 60px;
+  }
+
+  select {
+    width: 100%;
+    padding: 5px;
+  }
+
+  &.--switch > label {
+    display: inline;
+  }
+
+  &.--switch input {
+    width: 1px;
+    visibility: hidden;
+  }
+
+  &.--switch &_toggle {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    position: relative;
+    border-radius: 3px;
+    background-color: $switch-bg-color;
+  }
+
+  &.--switch &_toggle::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    position: relative;
+    top: 2px;
+    left: 2px;
+    border-radius: 3px;
+    background-color: $switch-toggle-off-color;
+
+    transition: all 0.5s ease;
+  }
+
+  &.--switch input:checked + &_toggle::after {
+    left: 28px;
+    background-color: $switch-toggle-on-color;
+  }
+}

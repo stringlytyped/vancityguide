@@ -27,3 +27,19 @@ $alert-text-color: #fff;
 $footer-bg-color: $dark-grey;
 $footer-text-color: #fff;
 $footer-link-hover-color: lighten($turquoise, 25%);
+
+// .field
+
+$field-label-color: $dark-grey;
+$field-border-color: lighten($dark-grey, 50%);
+$field-border-focus-color: $turquoise;
+
+$switch-bg-color: lighten($dark-grey, 75%);
+$switch-toggle-off-color: lighten($dark-grey, 25%);
+$switch-toggle-on-color: #3FB3AB;
+
+// .button
+
+$button-bg-color: $turquoise;
+$button-border-color: darken($turquoise, 10%);
+$button-text-color: #fff;

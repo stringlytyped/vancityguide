@@ -65,5 +65,5 @@
   <% if @poi.owner == current_user || (current_user && current_user.admin?) %>
     <%= link_to t('edit', scope: @t_scope), edit_poi_path(@poi) %> | 
   <% end %>
-  <%= link_to t('back', scope: @t_scope), pois_path %>
+  <%= link_to t('back', scope: @t_scope), root_path %>
 </div>

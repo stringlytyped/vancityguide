@@ -7,7 +7,6 @@
 # +price+::  string
 # +description+::  string
 # +category+::  enum (int)
-# +rating+::  int
 # +lat+::  string
 # +lon+::  string
 # +public+::  boolean

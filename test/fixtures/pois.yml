@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 9101
   public: false
   featured: false
   name: MyString
@@ -8,10 +9,11 @@ one:
   website: MyString
   price: MyString
   description: MyText
-  user: one
+  owner_id: 9001
   category: 1
 
 two:
+  id: 9102
   public: false
   featured: false
   name: MyString
@@ -19,5 +21,5 @@ two:
   website: MyString
   price: MyString
   description: MyText
-  user: two
+  owner_id: 9002
   category: 1

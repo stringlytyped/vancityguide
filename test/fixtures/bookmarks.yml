@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
-  poi: one
+  id: 9201
+  owner_id: 9001
+  poi_id: one
 
 two:
-  user: two
-  poi: two
+  id: 9202
+  owner_id: 9002
+  poi_id: two

@@ -1,0 +1,8 @@
+<% pois.each do |poi| %>
+  <article class="poi-tile <%= "--#{poi.category}" %>">
+    <%= link_to poi, class: "poi-tile_link" do %>
+      <span class="poi-tile_category"><%= poi.category.humanize %></span>
+      <span class="poi-tile_name"><%= poi.name.truncate(70) %></span>
+    <% end %>
+  </article>
+<% end %>

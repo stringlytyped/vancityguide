@@ -1,0 +1,32 @@
+<% if current_user.admin? %>
+  <h2><%= t('admin.heading', scope: @t_scope) %></h2>
+
+  <% if @other_pois && @other_pois.count > 0 %>
+    <table>
+      <thead>
+        <tr>
+          <th><%= t('admin.name', scope: @t_scope) %></th>
+          <th><%= t('admin.category', scope: @t_scope) %></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @other_pois.each do |poi| %>
+          <tr>
+            <td><%= poi.name %></td>
+            <td><%= poi.category.humanize %></td>
+            <td><%= link_to t('admin.show', scope: @t_scope), poi %></td>
+            <% if current_user == poi.owner || current_user.admin? %>
+              <td><%= link_to t('admin.edit', scope: @t_scope), edit_poi_path(poi) %></td>
+              <td><%= link_to t('admin.destroy', scope: @t_scope), poi, method: :delete,
+                      data: { confirm: t('admin.destroy_confirm', scope: @t_scope) } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><em><%= t('admin.empty', scope: @t_scope) %></em></p>
+  <% end %>
+<% end %>

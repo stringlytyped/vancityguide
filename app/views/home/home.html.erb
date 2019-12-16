@@ -10,25 +10,11 @@
 <% if @featured_pois.count > 0 %>
   <h2><%= t('featured_attractions', scope: @t_scope) %></h2>
 
-  <% @featured_pois.each do |poi| %>
-    <article class="poi-tile <%= "--#{poi.category}" %>">
-      <%= link_to poi, class: "poi-tile_link" do %>
-        <span class="poi-tile_category"><%= poi.category.humanize %></span>
-        <span class="poi-tile_name"><%= poi.name.truncate(70) %></span>
-      <% end %>
-    </article>
-  <% end %>
+  <%= render "shared/poi-listing", pois: @featured_pois %>
 <% end %>
 
 <% if @user_pois.count > 0 %>
   <h2><%= t('contributed_attractions', scope: @t_scope) %></h2>
 
-  <% @user_pois.each do |poi| %>
-    <article class="poi-tile <%= "--#{poi.category}" %>">
-      <%= link_to poi, class: "poi-tile_link" do %>
-        <span class="poi-tile_category"><%= poi.category.humanize %></span>
-        <span class="poi-tile_name"><%= poi.name.truncate(70) %></span>
-      <% end %>
-    </article>
-  <% end %>
+  <%= render "shared/poi-listing", pois: @user_pois %>
 <% end %>

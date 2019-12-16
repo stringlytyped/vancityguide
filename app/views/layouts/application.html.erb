@@ -26,16 +26,7 @@
 
   <body>
     <div class="site-layout">
-      <div id="map" class="site-layout_map" data-turbolinks-permanent data-js-map></div>
-
-      <script>
-        $.onmount('[data-js-map]', function () {
-          resetMap();
-          <% @featured_pois.each do |poi| %>
-            addMarker(<%= poi.lat %>, <%= poi.lon %>, '<%= poi.category %>', <%= poi.id %>, '<%= poi.name %>');
-          <% end %>
-        });
-      </script>
+      <%= render "layouts/map" %>
 
       <main class="site-layout_content" data-js-site-content>
         <header>
@@ -48,26 +39,7 @@
       </main>
       <div class="site-layout_content-arrow"></div>
 
-      <footer class="site-layout_footer">
-        <nav class="site-layout_nav">
-          <ul>
-            <li><%= link_to t('nav.home', scope: :application), root_path %></li>
-            <li><%= link_to t('nav.contact', scope: :application), contact_path %></li>
-            <% unless user_signed_in? %>
-              <li><%= link_to t('nav.login', scope: :application), new_user_session_path %></li>
-              <li><%= link_to t('nav.signup', scope: :application), new_user_registration_path %></li>
-            <% else %>
-              <li><%= link_to t('nav.attractions', scope: :application), pois_path %></li>
-              <li><%= link_to t('nav.bookmarks', scope: :application), bookmarks_path %></li>
-              <li><%= link_to t('nav.account', scope: :application), edit_user_registration_path %></li>
-              <li><%= link_to t('nav.logout', scope: :application), destroy_user_session_path, method: :delete %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <small class="site-layout_legal">
-          <%= t('copyright', scope: :application, year: Date.current.year) %>
-        </small>
-      </footer>
+      <%= render "layouts/footer" %>
     </div>
   </body>
 </html>

@@ -1,0 +1,10 @@
+<div id="map" class="site-layout_map" data-turbolinks-permanent data-js-map></div>
+
+<script>
+  $.onmount('[data-js-map]', function () {
+    resetMap();
+    <% @featured_pois.each do |poi| %>
+      addMarker(<%= poi.lat %>, <%= poi.lon %>, '<%= poi.category %>', <%= poi.id %>, '<%= poi.name %>');
+    <% end %>
+  });
+</script>

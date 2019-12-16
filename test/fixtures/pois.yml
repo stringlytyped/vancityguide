@@ -2,19 +2,21 @@
 
 one:
   id: 9101
-  public: false
-  featured: false
+  public: true
+  featured: true
   name: MyString
   rating: 1
-  website: MyString
+  website: "https://google.com"
   price: MyString
   description: MyText
   owner_id: 9001
   category: 1
+  lat: 50
+  lon: 50
 
 two:
   id: 9102
-  public: false
+  public: true
   featured: false
   name: MyString
   rating: 1
@@ -23,3 +25,5 @@ two:
   description: MyText
   owner_id: 9002
   category: 1
+  lat: 50
+  lon: 50

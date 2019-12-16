@@ -16,4 +16,5 @@ class Poi < ApplicationRecord
                   allow_nil: true
   
   has_many :bookmarks, dependent: :destroy
+  attribute :featured, :boolean, default: false
 end

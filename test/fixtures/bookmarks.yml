@@ -3,9 +3,9 @@
 one:
   id: 9201
   owner_id: 9001
-  poi_id: one
+  poi_id: 9101
 
 two:
   id: 9202
   owner_id: 9002
-  poi_id: two
+  poi_id: 9102

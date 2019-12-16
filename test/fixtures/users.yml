@@ -8,6 +8,7 @@ admin:
   id: 9001
   email: "test-admin@example.com"
   encrypted_password: "123"
+  admin: true
 
 regular:
   id: 9002

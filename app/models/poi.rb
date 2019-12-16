@@ -4,7 +4,6 @@
 # +name+::  string
 # +rating+::  int
 # +website+::  string
-# +name+::  string
 # +price+::  string
 # +description+::  string
 # +category+::  enum (int)

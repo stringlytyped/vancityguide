@@ -1,0 +1,37 @@
+.map-marker {
+  display: block;
+  width: 30px;
+  height: 30px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.--restaurant {
+    background-image: url('/assets/map-icon_restaurant.svg');
+  }
+
+  &.--nature {
+    background-image: url('/assets/map-icon_nature.svg');
+  }
+
+  &.--museum {
+    background-image: url('/assets/map-icon_museum.svg');
+  }
+
+  &.--nightlife {
+    background-image: url('/assets/map-icon_nightlife.svg');
+  }
+
+  &.--outdoor-activity {
+    background-image: url('/assets/map-icon_outdoor-activity.svg');
+  }
+
+  &.--shopping {
+    background-image: url('/assets/map-icon_shopping.svg');
+  }
+
+  &.--landmark {
+    background-image: url('/assets/map-icon_landmark.svg');
+  }
+}

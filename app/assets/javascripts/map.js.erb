@@ -1,12 +1,19 @@
+var addMarker;
+
 $.onmount('[data-js-map]', function () {
-  var $this = $(this)
-  // TODO: extract media query
+  var $this = $(this);
+  var map;
+  var pois = $this.attr['data-js-map'];
+  console.log(pois)
   const mq = window.matchMedia("screen and (min-width: 768px)");
   const accessToken = '<%= Rails.application.credentials[Rails.env.to_sym][:mapbox][:token] %>';
 
   // Initialize map upon initial page load, but only when the media query matches 
   if (mq.matches == true) {
     showMap();
+    map.on('load', function() {
+      // addMarker(poi.lat, poi.lon, poi.category, poi.id, poi.name);
+    });
   }
 
   // Watch for subsequent media query changes and initialize map if necessary 
@@ -20,10 +27,10 @@ $.onmount('[data-js-map]', function () {
   function showMap() {
     mapboxgl.accessToken = accessToken;
 
-    var map = new mapboxgl.Map({
+    map = new mapboxgl.Map({
       container: $this.get(0),
       style: 'mapbox://styles/imeow/ck3uhi0xf07rf1cntmz7erowm?fresh=true',
-      center: [-123.106913, 49.284185],
+      center: [-123.0995966, 49.2824489],
       zoom: 13.5,
       attributionControl: false
     });
@@ -31,5 +38,18 @@ $.onmount('[data-js-map]', function () {
     map.addControl(new mapboxgl.AttributionControl({
       compact: true
     }));
+  }
+
+  addMarker = function(lat, lon, category, id, tooltip) {
+    var element = $( '<div class="map-marker --' + category
+                     + '" title="' + tooltip + '"></div>' ).get(0);
+
+    $(element).on('click', function () {
+      Turbolinks.visit('/pois/' + id);
+    });
+
+    new mapboxgl.Marker(element)
+      .setLngLat([lon, lat])
+      .addTo(map);
   }
 });

@@ -20,7 +20,15 @@
 
   <body>
     <div class="site-layout">
-      <div id="map" class="site-layout_map" data-js-map data-turbolinks-permanent></div>
+      <div id="map" class="site-layout_map" data-turbolinks-permanent data-js-map></div>
+
+      <script>
+        $.onmount('[data-js-map]', function () {
+          <% @featured_pois.each do |poi| %>
+            addMarker(<%= poi.lat %>, <%= poi.lon %>, '<%= poi.category %>', <%= poi.id %>, '<%= poi.name %>');
+          <% end %>
+        });
+      </script>
 
       <main class="site-layout_content">
         <header>

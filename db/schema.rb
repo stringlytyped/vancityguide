@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_15_140858) do
+ActiveRecord::Schema.define(version: 2019_12_15_224206) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "owner_id", null: false
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2019_12_15_140858) do
     t.integer "category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "lat"
+    t.float "lon"
     t.index ["owner_id"], name: "index_pois_on_owner_id"
   end
 

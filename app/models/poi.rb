@@ -4,10 +4,16 @@ class Poi < ApplicationRecord
   enum category: [:restaurant, :nature, :museum, :nightlife, :outdoor_activity, :shopping, :landmark]
 
   validates :name, :owner, :category, presence: true
+  validates :website, url: true
   validates :rating, numericality: { greater_than_or_equal_to: 1,
                                      less_than_or_equal_to: 5 },
                      allow_nil: true
-  validates :website, url: true
-
+  validates :lat, numericality: { greater_than_or_equal_to: -90,
+                                  less_than_or_equal_to: 90 },
+                  allow_nil: true
+  validates :lon, numericality: { greater_than_or_equal_to: -180,
+                                  less_than_or_equal_to: 180 },
+                  allow_nil: true
+  
   has_many :bookmarks, dependent: :destroy
 end

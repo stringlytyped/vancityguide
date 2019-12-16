@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-432,0)">
+        <g id="Outdoor-activity" serif:id="Outdoor activity" transform="matrix(1,0,0,1,-0.921609,-0.779425)">
+            <rect x="432.922" y="0.779" width="42" height="42" style="fill:none;"/>
+            <g transform="matrix(0.998593,0,0,0.998593,361.709,-45.9043)">
+                <circle cx="92.342" cy="67.779" r="21.03" style="fill:rgb(64,196,111);"/>
+            </g>
+            <g transform="matrix(0.0468385,-0.292526,0.292526,0.0468385,454.289,34.1619)">
+                <circle cx="82.3" cy="12.8" r="10.3" style="fill:white;"/>
+            </g>
+            <g transform="matrix(0.296259,0,0,0.296259,437.488,6.8942)">
+                <path d="M83.6,87.9C82.3,89.4 80.2,90.1 78.3,89.5L51.9,81.5L63.5,64.9C64.8,63.1 64.9,60.7 64,58.7L44.9,54.7L49.9,61.5L39.6,77.5C39.5,77.6 39.5,77.7 39.5,77.7L12.4,69.5C10.3,68.9 8.2,70 7.6,72.1C7,74.2 8.1,76.3 10.2,76.9L76.1,97C77.3,97.4 78.6,97.5 79.8,97.5C83.5,97.5 87.1,95.9 89.6,92.9C91,91.2 90.7,88.8 89.1,87.4C87.4,86 85,86.3 83.6,87.9Z" style="fill:white;fill-rule:nonzero;"/>
+            </g>
+            <g transform="matrix(0.296259,0,0,0.296259,437.488,6.8942)">
+                <path d="M16.6,45L73.8,57C74.7,58.2 76.1,58.8 77.5,58.8C78.4,58.8 79.3,58.6 80.1,58C82.3,56.6 83,53.6 81.5,51.4L74.3,40.3C74.3,40.3 75,32.5 75.2,30C75.4,27.5 75,25 73.5,22.9C71.9,20.7 69.4,19.3 66.7,19C64,18.7 61.3,19.6 59.3,21.4L40.1,38.6C38.8,39.8 38.1,41.4 38,43.1L17.9,38.9C16.2,38.5 14.6,39.6 14.2,41.3C13.9,43 14.9,44.6 16.6,45ZM64.7,41.8C64.7,42.6 64.9,43.5 65.4,44.2L68.9,49.7L57.7,47.3L64.7,41.8Z" style="fill:white;fill-rule:nonzero;"/>
+            </g>
+        </g>
+    </g>
+</svg>

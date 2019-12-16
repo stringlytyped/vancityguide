@@ -21,6 +21,18 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field-row">
+    <div class="field">
+      <%= form.label :lat, "Latitude" %>
+      <%= form.text_field :lat %>
+    </div>
+
+    <div class="field">
+      <%= form.label :lon, "Longitude" %>
+      <%= form.text_field :lon %>
+    </div>
+  </div>
+
   <div class="field">
     <%= form.label :website %>
     <%= form.text_field :website %>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-324,0)">
+        <g id="Nightlife" transform="matrix(1,0,0,1.01891,-0.868271,-0.794163)">
+            <rect x="324.868" y="0.779" width="42" height="41.221" style="fill:none;"/>
+            <g transform="matrix(0.998593,0,0,0.980061,253.656,-45.038)">
+                <circle cx="92.342" cy="67.779" r="21.03" style="fill:rgb(167,61,212);"/>
+            </g>
+            <g transform="matrix(1,0,0,0.981442,330.871,5.68664)">
+                <path d="M27.3,5.75C26.351,4.639 24.96,3.999 23.499,3.999C21.132,3.999 19.073,5.68 18.6,8L10.75,8L7.35,2.48C7.17,2.184 6.847,2.001 6.5,2L4.5,2C3.951,2 3.5,2.451 3.5,3C3.5,3.549 3.951,4 4.5,4L5.94,4L8.4,8L7.4,8C6.304,8.002 5.403,8.904 5.403,10C5.403,10.407 5.528,10.805 5.76,11.14L7.44,13.56L13.49,22.3L13.49,28L11.49,28C10.941,28 10.49,28.451 10.49,29C10.49,29.549 10.941,30 11.49,30L17.49,30C18.039,30 18.49,29.549 18.49,29C18.49,28.451 18.039,28 17.49,28L15.49,28L15.49,22.31L21.49,13.58C22.105,13.851 22.768,13.994 23.44,14C24.127,14.004 24.807,13.868 25.44,13.6C27.288,12.82 28.495,11 28.495,8.994C28.495,7.805 28.071,6.655 27.3,5.75ZM19.5,10L21.59,10L20.8,11.14L20.4,11.72L20.21,12L13.21,12L12,10L19.5,10ZM9.63,10L10.86,12L8.79,12L7.41,10L9.63,10Z" style="fill:white;fill-rule:nonzero;"/>
+            </g>
+        </g>
+    </g>
+</svg>

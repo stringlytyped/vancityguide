@@ -87,7 +87,7 @@ class PoisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def poi_params
-      permitted_params = [:public, :name, :rating, :website, :price, :description, :category]
+      permitted_params = [:public, :name, :rating, :website, :price, :description, :category, :lat, :lon]
 
       # Only allow admins to change the featured field
       permitted_params.push :featured if current_user.admin?

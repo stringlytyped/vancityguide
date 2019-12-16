@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
     def set_featured_pois
-      @featured_pois = Poi.where(featured: true, public: true)
+      @featured_pois = Poi.where(featured: true, public: true).where.not(lat: nil, lon: nil)
     end
 
 end

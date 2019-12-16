@@ -74,7 +74,7 @@ class PoisController < ApplicationController
   def destroy
     @poi.destroy
     respond_to do |format|
-      format.html { redirect_to pois_url, notice: 'Attraction was deleted successfully' }
+      format.html { redirect_to pois_path, notice: 'Attraction was deleted successfully' }
       format.json { head :no_content }
     end
   end

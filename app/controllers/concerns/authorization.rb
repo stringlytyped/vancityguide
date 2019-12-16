@@ -12,10 +12,10 @@ module Authorization
     end
 
     def deny_access!
-      index_url = self.public_send("#{controller_name}_url")
+      index_path = self.public_send("#{controller_name}_path")
 
       respond_to do |format|
-        format.html { redirect_to index_url, alert: "You don't have permission to do that" }
+        format.html { redirect_to index_path, alert: "You don't have permission to do that" }
         format.json { head :no_content, status: :unauthorized }
       end
     end

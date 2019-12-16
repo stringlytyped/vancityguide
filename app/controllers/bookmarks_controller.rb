@@ -15,8 +15,8 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1.json
   def show
     respond_to do |format|
-      format.html { redirect_to poi_url(@bookmark.poi_id) }
-      format.json { redirect_to poi_url(@bookmark.poi_id) }
+      format.html { redirect_to poi_path(@bookmark.poi_id) }
+      format.json { redirect_to poi_path(@bookmark.poi_id) }
     end
   end
 
@@ -31,7 +31,7 @@ class BookmarksController < ApplicationController
         format.html { redirect_to @bookmark.poi }
         format.json { render :show, status: :created, location: @bookmark }
       else
-        format.html { redirect_to root_url, alert: "Could not save bookmark because of an unknown error" }
+        format.html { redirect_to root_path, alert: "Could not save bookmark because of an unknown error" }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
       end
     end

@@ -1,19 +1,21 @@
 var addMarker;
+var centerOnMarker;
+var resetMap;
 
 $.onmount('[data-js-map]', function () {
   var $this = $(this);
+
   var map;
-  var pois = $this.attr['data-js-map'];
-  console.log(pois)
+  var markers = {};
+
   const mq = window.matchMedia("screen and (min-width: 768px)");
   const accessToken = '<%= Rails.application.credentials[Rails.env.to_sym][:mapbox][:token] %>';
+  const defaultCenter = [-123.0995966, 49.2824489];
+  const defaultZoom = 13.5;
 
   // Initialize map upon initial page load, but only when the media query matches 
   if (mq.matches == true) {
     showMap();
-    map.on('load', function() {
-      // addMarker(poi.lat, poi.lon, poi.category, poi.id, poi.name);
-    });
   }
 
   // Watch for subsequent media query changes and initialize map if necessary 
@@ -41,15 +43,39 @@ $.onmount('[data-js-map]', function () {
   }
 
   addMarker = function(lat, lon, category, id, tooltip) {
-    var element = $( '<div class="map-marker --' + category
-                     + '" title="' + tooltip + '"></div>' ).get(0);
+    // If marker for this POI already exists, remove it first before re-adding it
+    // (We re-add it in case some data has changed)
+    if (markers[id]) {
+      markers[id].remove();
+    }
 
+    // Create element in memory to act as a marker
+    var element = $( '<div class="map-marker --' + category
+                    + '" title="' + tooltip + '"></div>' ).get(0);
+
+    // Attach click event listener to element
     $(element).on('click', function () {
       Turbolinks.visit('/pois/' + id);
     });
 
-    new mapboxgl.Marker(element)
-      .setLngLat([lon, lat])
-      .addTo(map);
-  }
+    // Add the marker element to the DOM via the mapbox API
+    marker = new mapboxgl.Marker(element)
+    marker.setLngLat([lon, lat])
+    marker.addTo(map);
+
+    // Save mapbox marker object so that it can be referenced in the future
+    markers[id] = marker
+  };
+
+  centerOnMarker = function(id) {
+    map.flyTo({ center: markers[id].getLngLat(), zoom: 17 });
+    window.setTimeout(function() {
+      $('[data-js-site-content]').addClass('--marker-centered');
+    }, 50);
+  };
+
+  resetMap = function() {
+    map.flyTo({ center: defaultCenter, zoom: defaultZoom });
+    $('[data-js-site-content]').removeClass('--marker-centered');
+  };
 });

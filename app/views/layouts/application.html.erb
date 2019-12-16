@@ -24,13 +24,14 @@
 
       <script>
         $.onmount('[data-js-map]', function () {
+          resetMap();
           <% @featured_pois.each do |poi| %>
             addMarker(<%= poi.lat %>, <%= poi.lon %>, '<%= poi.category %>', <%= poi.id %>, '<%= poi.name %>');
           <% end %>
         });
       </script>
 
-      <main class="site-layout_content">
+      <main class="site-layout_content" data-js-site-content>
         <header>
           <% if notice %><p class="site-layout_notice"><%= notice %></p><% end %>
           <% if alert %><p class="site-layout_alert"><%= alert %></p><% end %>
@@ -39,6 +40,7 @@
           <%= yield %>
         </div>
       </main>
+      <div class="site-layout_content-arrow"></div>
 
       <footer class="site-layout_footer">
         <nav class="site-layout_nav">

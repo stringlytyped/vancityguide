@@ -1,3 +1,9 @@
+<script>
+  $.onmount('[data-js-map]', function () {
+    centerOnMarker(<%= @poi.id %>);
+  });
+</script>
+
 <header class="poi-header">
   <h1 class="poi-header_heading">
     <span class="poi-header_category"><%= @poi.category.humanize %></span>

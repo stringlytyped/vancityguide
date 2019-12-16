@@ -31,6 +31,39 @@
 
       border-radius: 12px;
       box-shadow: 0 0 30px rgba(black, 0.25);
+
+      transition: right 1s ease;
+    }
+  }
+
+  &_content.--marker-centered {
+    @include respond-to("tablet-up") {
+      // left: calc(50% + 40px);
+      right: calc(50% + 60px);
+
+      transition: right 1s ease;
+    }
+  }
+
+  &_content-arrow {
+    @include respond-to("tablet-up") {
+      display: block;
+      width: 20px;
+      height: 40px;
+      position: absolute;
+      top: calc(50% - 35px);
+      right: calc(50% + 40px);
+      background-color: #fff;
+      clip-path: polygon(0% 0, 100% 50%, 0% 100%);
+      opacity: 0;
+
+      transition: all 1s ease 0.5s;
+    }
+  }
+
+  &_content.--marker-centered + &_content-arrow {
+    @include respond-to("tablet-up") {
+      opacity: 1;
     }
   }
 

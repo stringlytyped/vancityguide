@@ -1,3 +1,20 @@
+##
+# Defines the Poi (point of interest) model. Pois have the following attributes:
+#
+# +name+::  string
+# +rating+::  int
+# +website+::  string
+# +name+::  string
+# +price+::  string
+# +description+::  string
+# +category+::  enum (int)
+# +rating+::  int
+# +lat+::  string
+# +lon+::  string
+# +public+::  boolean
+# +featured+::  boolean
+# +owner_id+::  foreign key (+Users+ model)
+#
 class Poi < ApplicationRecord
   belongs_to :owner, class_name: "User"
   

@@ -1,3 +1,5 @@
+##
+# Actions for the POIs resource
 class PoisController < ApplicationController
   include Authorization
 
@@ -87,12 +89,14 @@ class PoisController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
+    ##
+    # Sets the POI from the ID passed as a parameter to the route
     def set_poi
       @poi = Poi.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    ##
+    # Defines which parameters should be accepted
     def poi_params
       permitted_params = [:public, :name, :rating, :website, :price, :description, :category, :lat, :lon]
 

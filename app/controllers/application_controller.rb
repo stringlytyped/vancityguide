@@ -1,3 +1,5 @@
+##
+# Functionality to be made available across all resources
 class ApplicationController < ActionController::Base
 
   before_action :set_featured_pois

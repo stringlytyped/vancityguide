@@ -1,3 +1,5 @@
+##
+# Actions for the bookmarks resource
 class BookmarksController < ApplicationController
   include Authorization
 
@@ -49,16 +51,20 @@ class BookmarksController < ApplicationController
   end
 
   private
+    ##
+    # Sets the translation scope to be used by the t() helper
     def set_t_scope
       @t_scope = :bookmarks
     end
 
-    # Use callbacks to share common setup or constraints between actions.
+    ##
+    # Sets the bookmark from the ID passed as a parameter to the route
     def set_bookmark
       @bookmark = Bookmark.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    ##
+    # Defines which parameters should be accepted
     def bookmark_params
       params.require(:bookmark).permit(:poi_id)
     end

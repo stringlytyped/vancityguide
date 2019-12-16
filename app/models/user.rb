@@ -1,3 +1,12 @@
+##
+# Defines the User model. Users have the following attributes:
+#
+# +email+::  strinf
+# +encrypted_password+::  string
+# +admin+::  boolean
+#
+# This list is not exhaustive; see Devise documentation for all attributes.
+#
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

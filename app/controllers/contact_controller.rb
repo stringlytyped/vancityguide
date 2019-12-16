@@ -1,13 +1,17 @@
+##
+# Actions to power the contact page
 class ContactController < ApplicationController
   before_action :set_t_scope
 
+  ##
+  # Shows the contact form
   # GET /contact
-  # Show contact form
   def new
   end
 
+  ##
+  # Accepts form data and sends notification email
   # POST /contact
-  # Accept form data and send notification email
   def create
     @sender_name = params[:sender_name]
     @sender_addr = params[:sender_addr]
@@ -24,6 +28,8 @@ class ContactController < ApplicationController
 
   private
 
+    ##
+    # Sets the translation scope to be used by the t() helper
     def set_t_scope
       @t_scope = :contact
     end

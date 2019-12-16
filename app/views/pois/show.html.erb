@@ -11,14 +11,14 @@
     <span class="poi-header_name"><%= @poi.name %></span>
   </h1>
   <% if @bookmark %>
-    <%= link_to bookmark_path(@bookmark.id), method: :delete, title: "Remove bookmark", class: "poi-header_bookmark --marked" do %>
-      <svg class="sprite --bookmark" aria-label="Remove bookmark">
+    <%= link_to bookmark_path(@bookmark.id), method: :delete, title: t('unmark_alt', scope: @t_scope), class: "poi-header_bookmark --marked" do %>
+      <svg class="sprite --bookmark" aria-label="<%= t('unmark_alt', scope: @t_scope) %>">
         <use xlink:href="/assets/sprite.svg#bookmark_marked"></use>
       </svg>
     <% end %>
   <% else %>
-    <%= link_to bookmarks_path(:"bookmark[poi_id]" => @poi.id), method: :post, title: "Bookmark attraction", class: "poi-header_bookmark --unmarked" do %>
-      <svg class="sprite --bookmark" aria-label="Bookmark attraction">
+    <%= link_to bookmarks_path(:"bookmark[poi_id]" => @poi.id), method: :post, title: t('mark_alt', scope: @t_scope), class: "poi-header_bookmark --unmarked" do %>
+      <svg class="sprite --bookmark" aria-label="<%= t('mark_alt', scope: @t_scope) %>">
         <use xlink:href="/assets/sprite.svg#bookmark_unmarked"></use>
       </svg>
     <% end %>
@@ -31,12 +31,12 @@
 
 <dl>
   <% if @poi.website.present? %>
-    <dt>Website</dt>
-    <dd><%= link_to URI.parse(@poi.website).host, @poi.website %></dd>
+    <dt><%= t('website', scope: @t_scope) %></dt>
+    <dd><%= link_to URI.parse(@poi.website).host, @poi.website, target: "_blank" %></dd>
   <% end %>
 
   <% if @poi.website.present? %>
-    <dt>Price</dt>
+    <dt><%= t('price', scope: @t_scope) %></dt>
     <dd><%= @poi.price %></dd>
   <% end %>
 </dl>
@@ -48,13 +48,13 @@
   <hr>
 
   <dl>
-    <dt>Owner</dt>
+    <dt><%= t('owner', scope: @t_scope) %></dt>
     <dd><%= @poi.owner.email %></dd>
 
-    <dt>Public</dt>
+    <dt><%= t('public', scope: @t_scope) %></dt>
     <dd><%= @poi.public %></dd>
 
-    <dt>Featured</dt>
+    <dt><%= t('featured', scope: @t_scope) %></dt>
     <dd><%= @poi.featured %></dd>
   </dl>
 
@@ -63,7 +63,7 @@
 
 <div>
   <% if @poi.owner == current_user || (current_user && current_user.admin?) %>
-    <%= link_to 'Edit', edit_poi_path(@poi) %> | 
+    <%= link_to t('edit', scope: @t_scope), edit_poi_path(@poi) %> | 
   <% end %>
-  <%= link_to 'Back', pois_path %>
+  <%= link_to t('back', scope: @t_scope), pois_path %>
 </div>

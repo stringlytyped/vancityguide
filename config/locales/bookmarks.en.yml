@@ -1,0 +1,6 @@
+en:
+  bookmarks:
+    title: "My bookmarks"
+    empty: "You have no bookmarks at the moment."
+    empty_instructions: "To create a bookmark, navigate to an attraction and click the bookmark icon."
+    error: "Could not save bookmark because of an unknown error"

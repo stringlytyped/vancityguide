@@ -1,0 +1,49 @@
+en:
+  pois:
+    index:
+      title: "My attractions"
+      new: "New attraction"
+      empty: "No attractions have been added."
+      admin:
+        heading: "Attractions created by other users"
+        name: "Name"
+        category: "Category"
+        show: "Show"
+        edit: "Edit"
+        destroy: "Destroy"
+        destroy_confirm: "Are you sure?"
+        empty: "No attractions have been added by other users."
+    new:
+      title: "New attraction"
+    edit:
+      title: "Edit attraction"
+    form:
+      error_count:
+        one: "One error"
+        other: "%{count} errors"
+      error_msg: "prohibited this attraction from being saved:"
+      category: "Category"
+      name: "Name"
+      latitude: "Latitude"
+      longitude: "Longitude"
+      website: "Website"
+      price: "Price"
+      description: "Description"
+      rating: "Rating"
+      public: "Public"
+      featured: "Featured"
+      submit: "Save attraction"
+      cancel: "Cancel"
+    show:
+      mark_alt: "Bookmark attraction"
+      unmark_alt: "Remove bookmark"
+      website: "Website"
+      price: "Price"
+      owner: "Owner"
+      public: "Public"
+      featured: "Featured"
+      edit: "Edit"
+      back: "Back"
+    create_success: "Attraction was created successfully"
+    update_success: "Attraction was updated successfully"
+    destroy_success: "Attraction was deleted successfully"

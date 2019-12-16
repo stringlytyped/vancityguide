@@ -1,7 +1,8 @@
+<% @ft_scope = [:pois, :form] %>
 <%= form_with(model: poi, local: true) do |form| %>
   <% if poi.errors.any? %>
     <div>
-      <p><strong><%= pluralize(poi.errors.count, "error") %> prohibited this attraction from being saved:</strong></p>
+      <p><strong><%= t('error_count', scope: @ft_scope, count: poi.errors.count) %> <%= t('error_msg', scope: @ft_scope) %></strong></p>
 
       <ul>
       <% poi.errors.full_messages.each do |message| %>
@@ -12,63 +13,63 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :category %>
+    <%= form.label :category, t('category', scope: @ft_scope) %>
     <%= form.select :category, Poi.categories.collect {|name, id| [ name.humanize, name ] } %>
   </div>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, t('name', scope: @ft_scope) %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field-row">
     <div class="field">
-      <%= form.label :lat, "Latitude" %>
+      <%= form.label :lat, t('latitude', scope: @ft_scope) %>
       <%= form.text_field :lat %>
     </div>
 
     <div class="field">
-      <%= form.label :lon, "Longitude" %>
+      <%= form.label :lon, t('longitude', scope: @ft_scope) %>
       <%= form.text_field :lon %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :website %>
+    <%= form.label :website, t('website', scope: @ft_scope) %>
     <%= form.text_field :website %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
+    <%= form.label :price, t('price', scope: @ft_scope) %>
     <%= form.text_field :price %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :description, t('description', scope: @ft_scope) %>
     <%= form.text_area :description %>
   </div>
 
   <div class="field">
-    <%= form.label :rating %>
+    <%= form.label :rating, t('rating', scope: @ft_scope) %>
     <%= form.number_field :rating, min: 1, max: 5 %>
   </div>
 
   <div class="field --switch">
-    <%= form.label :public %>
+    <%= form.label :public, t('public', scope: @ft_scope) %>
     <%= form.check_box :public %>
     <label for="poi_public" class="field_toggle"></label>
   </div>
 
   <% if current_user.admin? %>
     <div class="field --switch">
-      <%= form.label :featured %>
+      <%= form.label :featured, t('featured', scope: @ft_scope) %>
       <%= form.check_box :featured %>
       <label for="poi_featured" class="field_toggle"></label>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= form.submit "Save attraction", class: "button" %>
-    <%= link_to 'Cancel', pois_path %>
+    <%= form.submit t('submit', scope: @ft_scope), class: "button" %>
+    <%= link_to t('cancel', scope: @ft_scope), pois_path %>
   </div>
 <% end %>

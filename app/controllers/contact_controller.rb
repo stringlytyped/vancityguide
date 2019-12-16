@@ -1,4 +1,6 @@
 class ContactController < ApplicationController
+  before_action :set_t_scope
+
   # GET /contact
   # Show contact form
   def new
@@ -13,10 +15,16 @@ class ContactController < ApplicationController
 
     if (@sender_name.present? && @sender_addr.present? && @message.present?)
       ContactMailer.with(params).notification_email.deliver_now
-      redirect_to root_path, notice: "Message sent successfully"
+      redirect_to root_path, notice: t('success', scope: @t_scope)
     else
-      flash[:alert] = "All fields are required"
+      flash[:alert] = t('error', scope: @t_scope)
       render :new
     end
   end
+
+  private
+
+    def set_t_scope
+      @t_scope = :contact
+    end
 end

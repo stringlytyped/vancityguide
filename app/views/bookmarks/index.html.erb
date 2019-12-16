@@ -1,4 +1,4 @@
-<h1>My bookmarks</h1>
+<h1><%= t('title', scope: @t_scope) %></h1>
 
 <% if @bookmarks.count > 0 %>
   <% @bookmarks.each do |bookmark| %>
@@ -10,6 +10,6 @@
     </article>
   <% end %>
 <% else %>
-  <p><em>You have no bookmarks at the moment.</em></p>
-  <p><em>To create a bookmark, navigate to an attraction and click the bookmark icon.</em></p>
+  <p><em><%= t('empty', scope: @t_scope) %></em></p>
+  <p><em><%= t('empty_instructions', scope: @t_scope) %></em></p>
 <% end %>

@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   include Authorization
 
+  before_action :set_t_scope
   before_action :authenticate_user!
   before_action :set_bookmark, only: [:show, :destroy]
   before_action :allow_if_owner!, only: [:show, :destroy]
@@ -31,7 +32,7 @@ class BookmarksController < ApplicationController
         format.html { redirect_to @bookmark.poi }
         format.json { render :show, status: :created, location: @bookmark }
       else
-        format.html { redirect_to root_path, alert: "Could not save bookmark because of an unknown error" }
+        format.html { redirect_to root_path, alert: t('error', scope: @t_scope) }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
       end
     end
@@ -48,6 +49,10 @@ class BookmarksController < ApplicationController
   end
 
   private
+    def set_t_scope
+      @t_scope = :bookmarks
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_bookmark
       @bookmark = Bookmark.find(params[:id])

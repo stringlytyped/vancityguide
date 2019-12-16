@@ -8,6 +8,7 @@ class PoisController < ApplicationController
   # GET /pois
   # GET /pois.json
   def index
+    @t_scope = [:pois, :index]
     @my_pois = Poi.where(owner: current_user)
     if current_user.admin?
       @other_pois = Poi.where.not(owner: current_user)
@@ -20,6 +21,9 @@ class PoisController < ApplicationController
     unless @poi.public? || @poi.owner == current_user || current_user.admin? 
       deny_access!
     end
+
+    @t_scope = [:pois, :show]
+    @title = @poi.name
     
     @bookmark =
       if current_user.present?
@@ -31,11 +35,13 @@ class PoisController < ApplicationController
 
   # GET /pois/new
   def new
+    @t_scope = [:pois, :new]
     @poi = Poi.new
   end
 
   # GET /pois/1/edit
   def edit
+    @t_scope = [:pois, :edit]
   end
 
   # POST /pois
@@ -46,7 +52,7 @@ class PoisController < ApplicationController
 
     respond_to do |format|
       if @poi.save
-        format.html { redirect_to @poi, notice: 'Attraction was created successfully' }
+        format.html { redirect_to @poi, notice: t('create_success', scope: :pois) }
         format.json { render :show, status: :created, location: @poi }
       else
         format.html { render :new }
@@ -60,7 +66,7 @@ class PoisController < ApplicationController
   def update
     respond_to do |format|
       if @poi.update(poi_params)
-        format.html { redirect_to @poi, notice: 'Attraction was updated successfully' }
+        format.html { redirect_to @poi, notice: t('update_success', scope: :pois) }
         format.json { render :show, status: :ok, location: @poi }
       else
         format.html { render :edit }
@@ -74,12 +80,13 @@ class PoisController < ApplicationController
   def destroy
     @poi.destroy
     respond_to do |format|
-      format.html { redirect_to pois_path, notice: 'Attraction was deleted successfully' }
+      format.html { redirect_to pois_path, notice: t('destroy_success', scope: :pois) }
       format.json { head :no_content }
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_poi
       @poi = Poi.find(params[:id])

@@ -3,7 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Vancity Guide</title>
+    <title>
+      <% if @title %>
+        <%= @title %>
+      <% else %>
+        <%= t('title', scope: @t_scope) %>
+      <% end %>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= csrf_meta_tags %>
@@ -45,21 +51,21 @@
       <footer class="site-layout_footer">
         <nav class="site-layout_nav">
           <ul>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Contact", contact_path %></li>
+            <li><%= link_to t('nav.home', scope: :application), root_path %></li>
+            <li><%= link_to t('nav.contact', scope: :application), contact_path %></li>
             <% unless user_signed_in? %>
-              <li><%= link_to "Log in", new_user_session_path %></li>
-              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to t('nav.login', scope: :application), new_user_session_path %></li>
+              <li><%= link_to t('nav.signup', scope: :application), new_user_registration_path %></li>
             <% else %>
-              <li><%= link_to "My attractions", pois_path %></li>
-              <li><%= link_to "My bookmarks", bookmarks_path %></li>
-              <li><%= link_to "My account", edit_user_registration_path %></li>
-              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to t('nav.attractions', scope: :application), pois_path %></li>
+              <li><%= link_to t('nav.bookmarks', scope: :application), bookmarks_path %></li>
+              <li><%= link_to t('nav.account', scope: :application), edit_user_registration_path %></li>
+              <li><%= link_to t('nav.logout', scope: :application), destroy_user_session_path, method: :delete %></li>
             <% end %>
           </ul>
         </nav>
         <small class="site-layout_legal">
-          © <%= Date.current.year %> Vancity Guide
+          <%= t('copyright', scope: :application, year: Date.current.year) %>
         </small>
       </footer>
     </div>

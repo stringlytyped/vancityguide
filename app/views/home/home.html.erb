@@ -1,14 +1,14 @@
 <header class="home-header">
   <h1 class="home-header_logo">
-    <svg class="sprite --logo" aria-label="Vancity Guide">
+    <svg class="sprite --logo" aria-label="<%= t('logo_alt', scope: @t_scope) %>">
       <use xlink:href="/assets/sprite.svg#logo"></use>
     </svg>
   </h1>
-  <p class="home-header_tagline">Find the <strong><span class="home-header_underline">best</span> attractions</strong><br> in the city of Vancouver<br> and surrounding areas</p>
+  <p class="home-header_tagline"><%= t('tagline_html', scope: @t_scope) %></p>
 </header>
 
 <% if @featured_pois.count > 0 %>
-  <h2>Featured attractions</h2>
+  <h2><%= t('featured_attractions', scope: @t_scope) %></h2>
 
   <% @featured_pois.each do |poi| %>
     <article class="poi-tile <%= "--#{poi.category}" %>">
@@ -21,7 +21,7 @@
 <% end %>
 
 <% if @user_pois.count > 0 %>
-  <h2>Attractions contributed by our users</h2>
+  <h2><%= t('contributed_attractions', scope: @t_scope) %></h2>
 
   <% @user_pois.each do |poi| %>
     <article class="poi-tile <%= "--#{poi.category}" %>">

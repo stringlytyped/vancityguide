@@ -91,36 +91,41 @@
   }
 
   &_footer {
-    height: 30px;
-    position: absolute;
-    right: 0; 
-    bottom: 0;
-    left: 0;
-    padding: 0 20px 0 20px;
+    padding: 5px 20px;
+    margin-top: 30px;
 
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 
     background-color: $footer-bg-color;
 
     color: $footer-text-color;
     line-height: 30px;
     font-size: 14px;
+
+    @include respond-to("tablet-up") {
+      position: absolute;
+      right: 0; 
+      bottom: 0;
+      left: 0;
+      height: 30px;
+      margin-top: 0;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
   }
 
   &_footer ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    margin-left: -15px;
   }
 
   &_footer li {
     display: inline-block;
     margin-left: 15px;
-  }
-
-  &_footer li:first-child {
-    margin-left: 0;
   }
 
   &_footer a:link, &_footer a:visited {
@@ -133,7 +138,12 @@
   }
 
   &_nav {
-    order: 1;
+    margin-bottom: 10px;
+
+    @include respond-to("tablet-up") {
+      order: 1;
+      margin-bottom: 0;
+    }
   }
 
   &_legal {
